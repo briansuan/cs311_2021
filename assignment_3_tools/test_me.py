@@ -39,6 +39,7 @@ if __name__ == "__main__":
             proc = subprocess.Popen([f"{p['runme']} --last_opponent_move {last_move}"],
                     stdout=subprocess.PIPE, shell=True , cwd= p['dir_name'])
             (out, err) = proc.communicate()
+            #print(out)
             p['current_move'] = out.strip().lower().decode("utf-8")
 
 
