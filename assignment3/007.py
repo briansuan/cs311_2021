@@ -21,18 +21,6 @@ def view_my_last():
         data = json.load(json_file)
     return data
 
-# Add cooperation counter dict to json file
-def load_coop_cntr(data):
-    with open ('coop_cntr.json', 'w') as f:
-        json.dump(data, f)
-
-# View cooperation counter
-def view_coop_cntr():
-    with open ('coop_cntr.json', 'w') as f:
-        data = json.load(json_file)
-        coop = data[0]
-    return coop
-
 
 
 if __name__ == "__main__":
