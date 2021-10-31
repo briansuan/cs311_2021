@@ -35,9 +35,9 @@ if __name__ == "__main__":
     
     # Set cmd line args to my variables
     opp_last = args.last_opponent_move
-    #rounds = args.iterations 
+    rounds = args.iterations
     
-    if args.iterations == 0 or args.iterations == 99:
+    if rounds == 0 or rounds == 99:
         current_move = 'silent'
         my_prev = {0 : current_move}
         add_last_move(my_prev)
