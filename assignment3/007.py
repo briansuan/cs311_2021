@@ -9,9 +9,6 @@ import json
 
 
 
-
-
-
 # Add last move dictionary to json file
 def add_last_move(data):
     my_last_json = json.dumps(data)
@@ -50,32 +47,23 @@ if __name__ == "__main__":
     my_last = {0 : ''}
     add_last_move(my_last)
 
-    
+    # If at first and last round, confess
+    # Update dictionary in json file
     if rounds == '0' or rounds == '99':
         current_move = 'confess'
         update_my_last(current_move)
         print(current_move)
+    # Otherwise, if my opponent's last move is the same as my last move,
+    # copy my opponent's last move 
     elif opp_last == get_my_last():
         current_move = opp_last
         update_my_last(current_move)
         print(current_move)
+    # Otherwise, if my opponent's last move was not the same as my last move, confess
     elif opp_last != get_my_last():
         current_move = 'confess'
         update_my_last(current_move)
         print(current_move)
-
- 
-
-
-
-
-
-
-
-
-
-
-
 
 
 
