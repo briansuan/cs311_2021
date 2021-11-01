@@ -2,25 +2,34 @@ import argparse
 import json  
 
 
+# BRIAN SUAN
+# STRATEGY: 
+# My strategy is tit for tat but for the first and last round, always confess, for every round in between, just copy what my opponent's last move was 
+# If they confess, I confess, if they stay silent, I stay silent too
+# If they our moves do not match, then confes
 
-# Add last moves dictionary to json file
-def add_last_move(data, filename='my_last.json'):
-    with open(filename, 'w') as f:
-        json.dump(data, f)
+
+
+
+
+# Add last move dictionary to json file
+def add_last_move(data):
+    my_last_json = json.dumps(data)
+    with open('my_last.json', 'w') as f:
+        f.write(my_last_json)
     
-# Get last moves from json file     
-def load_last_move(move):
-    with open ('my_last.json') as json_file:
-        data = json.load(json_file)
-        data[0] = move
+# Get last move from json file     
+def get_my_last():
+    with open ('my_last.json', 'r') as f:
+        data = json.loads(f.read())
+    return data['0']
+
+# update last move dictionary in json file
+def update_my_last(move):
+    with open ('my_last.json' , 'r') as f:
+        data = json.loads(f.read())
+        data['0'] = move
     add_last_move(data)
-
-# View my last moves
-def view_my_last():
-    with open ('my_last.json') as json_file:
-        data = json.load(json_file)
-    return data
-
 
 
 if __name__ == "__main__":
@@ -37,17 +46,19 @@ if __name__ == "__main__":
     opp_last = args.last_opponent_move
     rounds = args.iterations
     
-    if rounds == 0 or rounds == 99:
-        current_move = 'silent'
-        my_prev = {0 : current_move}
-        add_last_move(my_prev)
-        print(current_move)
-    elif opp_last == view_my_last():
-        load_last_move(opp_last)
-        print(opp_last)
-    elif opp_last != view_my_last():
+
+    
+    if rounds == '0' or rounds == '99':
         current_move = 'confess'
-        load_last_move(current_move)
+        update_my_last(current_move)
+        print(current_move)
+    elif opp_last == get_my_last():
+        current_move = opp_last
+        update_my_last(current_move)
+        print(current_move)
+    elif opp_last != get_my_last():
+        current_move = 'confess'
+        update_my_last(current_move)
         print(current_move)
  
 
