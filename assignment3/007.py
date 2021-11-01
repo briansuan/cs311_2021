@@ -6,7 +6,7 @@ import json
 # STRATEGY: 
 # My strategy is tit for tat but for the first and last round, always confess, for every round in between, just copy what my opponent's last move was 
 # If they confess, I confess, if they stay silent, I stay silent too
-# If they our moves do not match, then confes
+
 
 
 
@@ -45,7 +45,10 @@ if __name__ == "__main__":
     # Set cmd line args to my variables
     opp_last = args.last_opponent_move
     rounds = args.iterations
-    
+
+    # initialize my_last dictionary 
+    my_last = {0 : ''}
+    add_last_move(my_last)
 
     
     if rounds == '0' or rounds == '99':
@@ -60,7 +63,18 @@ if __name__ == "__main__":
         current_move = 'confess'
         update_my_last(current_move)
         print(current_move)
+
  
+
+
+
+
+
+
+
+
+
+
 
 
 
