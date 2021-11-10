@@ -46,6 +46,9 @@ if __name__ == "__main__":
     # initialize my_last dictionary 
     my_last = {0 : ''}
     add_last_move(my_last)
+    
+
+    
 
     # If at first and last round, confess
     # Update dictionary in json file
@@ -58,12 +61,12 @@ if __name__ == "__main__":
     elif opp_last == get_my_last():
         current_move = opp_last
         update_my_last(current_move)
-        print(current_move)
+        print(get_my_last())
     # Otherwise, if my opponent's last move was not the same as my last move, confess
     elif opp_last != get_my_last():
-        current_move = 'confess'
+        current_move = opp_last
         update_my_last(current_move)
-        print(current_move)
+        print(get_my_last())
 
 
 
