@@ -9,8 +9,11 @@ class Node:
     def __init__(self):
         self.children = []
         
-        self.my_node = ''.join([random.choice(string.ascii_letters) for i in range (3)])
+        self.my_node = ''
 
+        for i in range(3):
+            self.my_node += self.my_node.join([random.choice(string.ascii_letters)])
+    
         self.children_connection_weights = []
     
     # A recursive function to make children, break out of the recursion if the current layer is at the last layer, 
@@ -88,7 +91,7 @@ for i in range(0, len(NODE_COUNT_PER_LAYER)):
 
 master_node.OUTPUT_children(0)
 
-print("!! Set Weights !!")
+print("\n!! SET WEIGHTS !!\n")
 
 master_node.adjust_child_weights()
 
