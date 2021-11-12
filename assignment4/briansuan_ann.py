@@ -78,7 +78,7 @@ my_first_node.make_children(1, NODE_COUNT_PER_LAYER)
 master_node.children.append(my_first_node)
 
 # Create the rest of the nodes
-for i in range(1, len(NODE_COUNT_PER_LAYER)):
+for i in range(0, len(NODE_COUNT_PER_LAYER)):
     new_node = Node()
 
     new_node.children = my_first_node.children[:]
