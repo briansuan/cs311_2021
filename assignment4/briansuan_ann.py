@@ -48,6 +48,7 @@ class Node:
 
         if len(self.children) == 0:
             print(f"{indent}{self.my_node}")
+            return
 
         print(f"{indent}{self.my_node} is connected to ")
 
@@ -86,7 +87,6 @@ for i in range(1, len(NODE_COUNT_PER_LAYER)):
 
 
 master_node.OUTPUT_children(0)
-
 
 print("!! Set Weights !!")
 
